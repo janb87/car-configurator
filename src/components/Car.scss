@@ -1,0 +1,46 @@
+.car {
+  position: relative;
+  $car-color: crimson;
+
+  width: 365px;
+  height: 185px;
+
+  > span {
+     position: absolute;
+  }
+
+  > .body {
+    top: 70px;
+    left: 10px;
+    width: 340px;
+    height: 80px;
+    border-radius: 30px;
+    background-color: $car-color;
+  }
+
+  > .top {
+    top: 10px;
+    left: 70px;
+    width: 220px;
+    height: 55px;
+    border-color: $car-color $car-color transparent $car-color;
+    border-width: 7px;
+    border-style: solid;
+    border-radius: 50px 50px 0 0;
+  }
+
+  > .left-line, > .right-line {
+    top: 10px;
+    height: 70px;
+    border: 7px solid $car-color;
+    border-right-style: none;
+  }
+
+  > .left-line {
+    left: 145px;
+  }
+
+  > .right-line {
+    left: 215px;
+  }
+}
