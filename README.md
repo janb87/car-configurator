@@ -25,6 +25,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. Auto-saving configuration to the `localStorage`
 2. Sharing configuration using a url
 3. i18n
+4. Travis build
 
 ### Nice to have
 
@@ -33,6 +34,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 3. Change configuration for interior
 4. Use [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/)
 5. Use [React Hot Loader](https://github.com/gaearon/react-hot-loader)
+6. Measure test coverage
 
 ## Available Scripts
 

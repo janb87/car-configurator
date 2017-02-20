@@ -1,0 +1,31 @@
+@mixin square($width, $height, $border-radius, $bg-color) {
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+    background-color: $bg-color;
+}
+
+@mixin curved-line-horizontal($width, $height, $bg-color, $curve-left, $curve-right) {
+    @include line-horizontal($width, $height, $bg-color);
+    border-radius: 0 0 $curve-left $curve-right;
+}
+
+@mixin line-horizontal($width, $height, $bg-color) {
+    @include line-vertical($width, $height, $bg-color);
+    border-right-style: solid;
+    transform: rotate(180deg);
+}
+
+@mixin line-vertical($width, $height, $bg-color) {
+    height: $height;
+    border: $width solid $bg-color;
+    border-right-style: none;
+}
+
+@mixin circle($radius, $bg-color, $border-width: 0, $border-color: transparent) {
+    width: $radius;
+    height: $radius;
+    background-color: $bg-color;
+    border: $border-width solid $border-color;
+    border-radius: $radius * 2;
+}
