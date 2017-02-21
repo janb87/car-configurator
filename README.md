@@ -43,6 +43,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. `components` Presentation components. Focus on displaying things, don't use the global store.
 3. `containers` Container components. Focus on behavior, use the global store.
 4. `reducers` Redux reducers. Convert an action into a new state.
+5. `sagas` Redux sagas, used to simplify interactions with async actions.
 5. `services` Services which interact with the backend (JSON Api).
 
 ## Available Scripts
