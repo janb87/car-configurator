@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import Car from '../components/Car';
-import Configurator from './Configurator';
+import ConfigurationPanel from './ConfigurationPanel';
 import './App.css';
 
 class App extends Component {
     render() {
         const { store } = this.context;
-        const { bodyColor } = store.getState();
+        const { bodyColor, sideNumber } = store.getState();
 
         return (
             <div className="app">
-                <div className="header">
+                <header className="header">
                     <h2>Welcome to the Car Configuration editor</h2>
-                </div>
-                <Car bodyColor={bodyColor} />
-                <Configurator />
+                </header>
+                <main>
+                    <Car bodyColor={bodyColor} sideNumber={sideNumber} />
+                    <ConfigurationPanel />
+                </main>
             </div>
         );
     }

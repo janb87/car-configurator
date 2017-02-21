@@ -1,12 +1,26 @@
 .app {
-    text-align: center;
     .header {
+        text-align: center;
         background-color: #222;
-        height: 150px;
+        height: 50px;
         padding: 20px;
         color: white;
     }
-    .intro {
-        font-size: large;
+    >main {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+        .car {
+            min-width: 450px;
+            flex: 2 auto;
+        }
+        .configuration-panel {
+            flex: 1 auto;
+            width: 350px;
+            min-width: 350px;
+            overflow: auto;
+        }
     }
 }

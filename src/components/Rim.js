@@ -3,9 +3,10 @@ import './Rim.css';
 
 class Rim extends Component {
     render() {
+        const { rimStyle, color } = this.props;
+
         return (
-            <div className="rim cross">
-            </div>
+            <div className={`rim ${rimStyle} color-${color}`} />
         );
     }
 }

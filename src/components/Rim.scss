@@ -40,11 +40,22 @@ $denominator: 1.42 // Play with this val at different sizes
     background: linear-gradient(to bottom, transparent 35%, $color 35%, $color 65%, transparent 65%), linear-gradient(to right, transparent 35%, $color 35%, $color 65%, transparent 65%);
 }
 
+$supported-colors: #c0c0c0 #808080 #000000 #ffd700 #ff0000;
+
 .rim {
-    &.star {
-        @include shape-star(yellow, 25px);
+    &.star,
+    &.basic {
+        @each $color in $supported-colors {
+            &.color-#{str-slice(quote($color), 2)} {
+                @include shape-star($color, 25px);
+            }
+        }
     }
     &.cross {
-        @include shape-cross(yellow, 25px);
+        @each $color in $supported-colors {
+            &.color-#{str-slice(quote($color), 2)} {
+                @include shape-cross($color, 50px);
+            }
+        }
     }
 }

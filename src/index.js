@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 
 const store = createStore(reducer);
 const setCarBrandsAction = data => store.dispatch({ type: 'SET_CAR_BRANDS', value: data });
-loadCarBrands().then(setCarBrandsAction);
+loadCarBrands().then(setCarBrandsAction).catch(err => console.error(err)); // TODO: improve error handling
 
 const render = () => {
     ReactDOM.render(

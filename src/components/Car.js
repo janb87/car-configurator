@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Rim from './Rim';
+import CarNumber from '../components/CarNumber';
 import './Car.css';
 
 class Car extends Component {
     render() {
-        const { bodyColor } = this.props;
+        const { bodyColor, sideNumber } = this.props;
 
         const bodyStyle = {
             backgroundColor: bodyColor
@@ -26,6 +27,7 @@ class Car extends Component {
 
                 <span className="front-light"></span>
                 <span className="rear-ligth"></span>
+                <CarNumber>{sideNumber}</CarNumber>
             </div>
         );
     }

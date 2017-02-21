@@ -8,11 +8,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Must have
 
-1. Being able to customize a car
+1. [ ] Being able to customize a car
     1. [ ] Brand (using data from this [api](https://car-api.firebaseio.com/rest.json))
     2. [ ] Body color
     3. [ ] Rims (type + color)
-    4. [ ] Paint jobs (eg flames on the sides)
+    4. [ ] Number on the side
 2. [ ] Don't use any images (including SVG or Canvas), try to do as much as possible using CSS
 3. [ ] Use next generation Javascript / CSS
 4. [ ] Minification / any other optimizations for Production
