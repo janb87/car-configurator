@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HuePicker, CirclePicker } from 'react-color';
 import './ConfigurationPanel.css';
 import Rim from '../components/Rim';
-import { setCarBodyColor, setCarRimsColor, selectCarBrand, setCarSideNumber } from '../actions/actionCreators';
+import { setCarBodyColor, setCarRimsColor, selectCarBrand, setCarSideNumber, setCarRimsType } from '../actions/actionCreators';
 
 class ConfigurationPanel extends Component {
     render() {
@@ -17,9 +17,9 @@ class ConfigurationPanel extends Component {
                 <div className='car-brands'>
                     {carBrands.map((carBrand, index) => {
                         const className = carBrand.make === selectedCarBrand ? 'selected' : '';
-                        return (<img className={className} key={index} alt={carBrand.make} src={carBrand.logoUrl} onClick={() => {
-                            this.onCarBrandClick(carBrand.make);
-                        }} />)
+                        return (<img className={className} key={index} alt={carBrand.make} src={carBrand.logoUrl} onClick={() =>
+                            this.onCarBrandClick(carBrand.make)
+                        } />)
                     })}
                 </div>
                 <hr />
@@ -27,11 +27,15 @@ class ConfigurationPanel extends Component {
                 <HuePicker color={bodyColor}
                     onChangeComplete={this.onBodyColorChange.bind(this)} />
                 <hr />
-                <h2>Rims style</h2>
+                <h2>Rims type</h2>
                 <div className='rim-styles'>
                     {rimStyles.map((rimStyle, index) => {
                         const className = rimStyle === rimsType ? 'selected' : '';
-                        return (<div key={index} className={className}><Rim rimStyle={rimStyle} color={rimsColor} /></div>);
+                        return (
+                            <div key={index} className={className} onClick={() => this.onRimsTypeChange(rimStyle)}>
+                                <Rim rimStyle={rimStyle} color={rimsColor} />
+                            </div>
+                        );
                     })}
                 </div>
                 <hr />
@@ -64,6 +68,11 @@ class ConfigurationPanel extends Component {
         const sideNumber = event.target.value;
         const { store } = this.context;
         store.dispatch(setCarSideNumber(sideNumber));
+    }
+
+    onRimsTypeChange(rimsType) {
+        const { store } = this.context;
+        store.dispatch(setCarRimsType(rimsType));
     }
 }
 

@@ -13,3 +13,7 @@ export const selectCarBrand = (carBrand) => {
 export const setCarSideNumber = (sideNumber) => {
     return { type: 'SET_CAR_SIDE_NUMBER', value: sideNumber };
 }
+
+export const setCarRimsType = (rimsType) => {
+    return { type: 'SET_CAR_RIMS_TYPE', value: rimsType };
+}
