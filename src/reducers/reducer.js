@@ -31,14 +31,24 @@ export const reducer = (state = {
                 rimsType: action.value
             };
         case 'SET_CAR_RIMS_COLOR':
+            let rimsColor = action.value;
+            if (rimsColor.indexOf('#') === 0) {
+                rimsColor = rimsColor.substring(1);
+            }
             return {
                 ...state,
-                rimsColor: action.value
+                rimsColor
             };
         case 'SET_CAR_SIDE_NUMBER':
+            let sideNumber = action.value;
+            if (sideNumber > 99) {
+                sideNumber = 99;
+            } else if (sideNumber < 0) {
+                sideNumber = 0;
+            }
             return {
                 ...state,
-                sideNumber: action.value
+                sideNumber
             };
         default:
             return state;

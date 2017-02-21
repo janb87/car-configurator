@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HuePicker, CirclePicker } from 'react-color';
 import './ConfigurationPanel.css';
 import Rim from '../components/Rim';
+import { setCarBodyColor, setCarRimsColor, selectCarBrand, setCarSideNumber } from '../actions/actionCreators';
 
 class ConfigurationPanel extends Component {
     render() {
@@ -46,23 +47,23 @@ class ConfigurationPanel extends Component {
 
     onBodyColorChange(color) {
         const { store } = this.context;
-        store.dispatch({ type: 'SET_CAR_BODY_COLOR', value: color.hex });
+        store.dispatch(setCarBodyColor(color.hex));
     }
 
     onRimsColorChange(color) {
         const { store } = this.context;
-        store.dispatch({ type: 'SET_CAR_RIMS_COLOR', value: color.hex.substring(1) });
+        store.dispatch(setCarRimsColor(color.hex));
     }
 
     onCarBrandClick(carBrand) {
         const { store } = this.context;
-        store.dispatch({ type: 'SELECT_CAR_BRAND', value: carBrand });
+        store.dispatch(selectCarBrand(carBrand));
     }
 
     onSideNumberChange(event) {
         const sideNumber = event.target.value;
         const { store } = this.context;
-        store.dispatch({ type: 'SET_CAR_SIDE_NUMBER', value: sideNumber });
+        store.dispatch(setCarSideNumber(sideNumber));
     }
 }
 
