@@ -15,7 +15,7 @@ const App = (props, context) => {
     return (
         <div className="app">
             <header className="header">
-                <h2>Welcome to the Car Configuration editor</h2>
+                <h2>Welcome to the Car Configurator!</h2>
             </header>
             <main>
                 <section className="car-view">

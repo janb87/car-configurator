@@ -23,8 +23,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. [ ] Auto-saving configuration to the `localStorage`
 2. [ ] Sharing configuration using a url
-3. [ ] Basic tests
-4. [ ] Travis build
+3. [x] Basic tests (added a reducer test example)
+4. [x] Travis build
 
 ### Nice to have
 
