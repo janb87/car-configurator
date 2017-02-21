@@ -35,7 +35,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 5. [ ] Use [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 6. [ ] i18n
 7. [ ] Sass compilation as part of webpack
-8. [ ] Make use of Redux Saga
+8. [x] Make use of Redux Saga
 
 ## Directory structure
 

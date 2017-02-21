@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App';
 import './index.css';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { reducer } from './reducers/reducer';
-import { loadCarBrands } from './services/carBrands';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import carBrandsSaga from './sagas/carBrandsSaga'
+import { carBrandsFetchRequested } from './actions/actionCreators';
 
-const store = createStore(reducer);
-const setCarBrandsAction = data => store.dispatch({ type: 'SET_CAR_BRANDS', value: data });
-loadCarBrands().then(setCarBrandsAction).catch(err => console.error(err)); // TODO: improve error handling
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(carBrandsSaga);
 
 const render = () => {
     ReactDOM.render(
@@ -18,4 +20,5 @@ const render = () => {
     );
 };
 store.subscribe(render);
+store.dispatch(carBrandsFetchRequested());
 render();

@@ -1,6 +1,8 @@
+const DEFAULT_CAR_BRANDS = [{ make: 'Audi', logoUrl: 'http://www.carlogos.org/logo/Audi-emblem-2016-black-1920x1080.png' }];
+
 export const reducer = (state = {
     selectedCarBrand: null,
-    carBrands: [],
+    carBrands: DEFAULT_CAR_BRANDS,
     bodyColor: 'crimson',
     rimsType: 'basic', // Can be basic, cross or star
     rimsColor: 'c0c0c0',
@@ -19,6 +21,12 @@ export const reducer = (state = {
                 ...state,
                 selectedCarBrand,
                 carBrands: action.value.slice()
+            };
+        case 'CAR_BRANDS_FETCH_FAILED':
+             return {
+                ...state,
+                selectedCarBrand: null,
+                carBrands: DEFAULT_CAR_BRANDS.slice()
             };
         case 'SET_CAR_BODY_COLOR':
             return {

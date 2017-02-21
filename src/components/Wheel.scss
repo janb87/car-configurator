@@ -17,7 +17,7 @@ $supported-rim-colors: #c0c0c0 #808080 #ffd700 #ff0000;
             @each $color in $supported-rim-colors {
                 &.color-#{str-slice(quote($color), 2)} {
                     // By making the circle slightly inperfect the animation is visible
-                    @include oval($rim-basic-size, ($rim-basic-size + 1), $color);
+                    @include oval($rim-basic-size, ($rim-basic-size + 2), $color);
                 }
             }
         }
