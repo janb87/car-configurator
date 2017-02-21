@@ -1,0 +1,51 @@
+@import '../sass/Shapes.scss';
+$supported-rim-colors: #c0c0c0 #808080 #ffd700 #ff0000;
+.wheel {
+    position: relative;
+    $wheel-size: 66px;
+    $rim-basic-size: 30px;
+    $rim-star-size: 50px;
+    $rim-cross-size: 50px;
+    $tyre-color: #222;
+    $rim-color: #555;
+    @include circle($wheel-size, $tyre-color, 7px, #fff);
+    animation: spin 3s infinite linear;
+    >.rim {
+        position: absolute;
+        &.basic {
+            $rim-basic-margin: ($wheel-size / 2) - ($rim-basic-size / 2);
+            left: $rim-basic-margin;
+            top: $rim-basic-margin;
+            @include circle($rim-basic-size, $rim-color);
+        }
+        &.star {
+            $rim-star-margin: ($wheel-size / 2) - ($rim-star-size / 2);
+            left: $rim-star-margin;
+            top: $rim-star-margin;
+            @each $color in $supported-rim-colors {
+                &.color-#{str-slice(quote($color), 2)} {
+                    @include star($color, 25px);
+                }
+            }
+        }
+        &.cross {
+            $rim-cross-margin: ($wheel-size / 2) - ($rim-cross-size / 2);
+            left: $rim-cross-margin;
+            top: $rim-cross-margin;
+            @each $color in $supported-rim-colors {
+                &.color-#{str-slice(quote($color), 2)} {
+                    @include cross($color, 50px);
+                }
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

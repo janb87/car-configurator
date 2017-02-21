@@ -5,7 +5,7 @@ import './App.css';
 
 const App = (props, context) => {
     const { store } = context;
-    const { bodyColor, sideNumber } = store.getState();
+    const { bodyColor, sideNumber, rimsType, rimsColor } = store.getState();
 
     return (
         <div className="app">
@@ -13,7 +13,9 @@ const App = (props, context) => {
                 <h2>Welcome to the Car Configuration editor</h2>
             </header>
             <main>
-                <Car bodyColor={bodyColor} sideNumber={sideNumber} />
+                <section className="car-view">
+                    <Car bodyColor={bodyColor} sideNumber={sideNumber} rimsType={rimsType} rimsColor={rimsColor} />
+                </section>
                 <ConfigurationPanel />
             </main>
         </div>

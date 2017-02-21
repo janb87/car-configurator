@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HuePicker, CirclePicker } from 'react-color';
 import './ConfigurationPanel.css';
-import Rim from '../components/Rim';
+import Wheel from '../components/Wheel';
 import { setCarBodyColor, setCarRimsColor, selectCarBrand, setCarSideNumber, setCarRimsType } from '../actions/actionCreators';
 
 class ConfigurationPanel extends Component {
@@ -9,7 +9,7 @@ class ConfigurationPanel extends Component {
         const { store } = this.context;
         const { carBrands, bodyColor, rimsType, rimsColor, sideNumber, selectedCarBrand } = store.getState();
         const rimStyles = ['basic', 'star', 'cross'];
-        const rimColors = ['#c0c0c0', '#808080', '#000000', '#ffd700', '#ff0000'];
+        const rimColors = ['#c0c0c0', '#808080', '#ffd700', '#ff0000'];
 
         return (
             <section className='configuration-panel'>
@@ -33,7 +33,7 @@ class ConfigurationPanel extends Component {
                         const className = rimStyle === rimsType ? 'selected' : '';
                         return (
                             <div key={index} className={className} onClick={() => this.onRimsTypeChange(rimStyle)}>
-                                <Rim rimStyle={rimStyle} color={rimsColor} />
+                                <Wheel rimsType={rimStyle} rimsColor={rimsColor} />
                             </div>
                         );
                     })}

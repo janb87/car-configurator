@@ -1,93 +1,98 @@
 @import '../sass/Shapes.scss';
-
 .car {
-  position: relative;
-  $car-color: crimson;
-  $bumper-color: #999;
-  $wheel-size: 66px;
-  $rim-size: 30px;
-  $tyre-color: #222;
-  $rim-color: #555;
-  $front-light-color: gold;
-  $rear-light-color: orange;
-
-  width: 365px;
-  height: 185px;
-
-  span {
-     position: absolute;
-  }
-
-  > .body {
-    top: 70px;
-    left: 10px;
-    @include square(340px, 80px, 30px, $car-color);
-
-    > .top {
-      top: -55px;
-      left: 60px;
-      width: 206px;
-      @include curved-line-horizontal(7px, 55px, $car-color, 150px, 150px);
-
-      > .top-line {
-        top: -25px;
-        @include line-vertical(7px, 70px, $car-color);
-
+    position: relative;
+    $car-color: crimson;
+    $bumper-color: #999;
+    $front-light-color: gold;
+    $rear-light-color: orange;
+    width: 365px;
+    height: 185px;
+    div {
+        position: absolute;
+    }
+    >.body {
+        top: 70px;
+        left: 10px;
+        @include square(340px, 80px, 30px, $car-color);
+        animation: bobbing 0.2s infinite ease-in-out forwards alternate;
+        >.top {
+            top: -55px;
+            left: 60px;
+            width: 206px;
+            @include curved-line-horizontal(7px, 55px, $car-color, 150px, 150px);
+            >.top-line {
+                top: -25px;
+                @include line-vertical(7px, 70px, $car-color);
+                &.front {
+                    left: 65px;
+                }
+                &.rear {
+                    left: 135px;
+                }
+            }
+        }
+        >.bumper {
+            @include square(40px, 20px, 10px, $bumper-color);
+            top: 40px;
+            &.front {
+                left: 315px;
+            }
+            &.rear {
+                left: -10px;
+            }
+        }
+        >.light {
+            &.front {
+                top: 5px;
+                left: 315px;
+                @include circle(30px, $front-light-color);
+            }
+            &.rear {
+                top: 10px;
+                left: -5px;
+                @include circle(20px, $rear-light-color);
+            }
+        }
+        >.car-number {
+            left: 140px;
+            top: 10px;
+        }
+    }
+    >.wheel {
+        top: 120px;
         &.front {
-          left: 65px;
+            left: 230px;
         }
-
         &.rear {
-          left: 135px;
+            left: 50px;
         }
-      }
     }
-
-    > .bumper {
-      @include square(40px, 20px, 10px, $bumper-color);
-      top: 40px;
-
-      &.front {
-        left: 315px;
-      }
-
-      &.rear {
-        left: -10px;
-      }
+    .shadow {
+        width: 90%;
+        border-radius: 100%;
+        height: 20px;
+        bottom: -10%;
+        left: 5%;
+        background: rgba(0, 0, 0, 0.1);
+        animation: shadow 0.2s infinite ease-in-out forwards alternate;
+        transform-origin: right center;
     }
+}
 
-    > .wheel {
-      top: 40px;
-      @include circle($wheel-size, $tyre-color, 7px, #fff);
-
-      > .rim {
-        $rim-margin: ($wheel-size / 2) - ($rim-size / 2);
-        left: $rim-margin;
-        top: $rim-margin;
-        @include circle($rim-size, $rim-color);
-      }
-
-      &.front {
-        left: 220px;
-      }
-
-      &.rear {
-        left: 40px;
-      }
+@keyframes bobbing {
+    0% {
+        transform: rotate(0) translateY(0);
     }
-
-    > .light {
-      &.front {
-        top: 5px;
-        left: 315px;
-        @include circle(30px, $front-light-color);
-      }
-
-      &.rear {
-        top: 10px;
-        left: -5px;
-        @include circle(20px, $rear-light-color);
-      }
+    100% {
+        transform: rotate(0.1deg) translateY(5px);
     }
-  }
+}
+
+@keyframes shadow {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.01);
+    }
 }
