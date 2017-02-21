@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Rim from './Rim';
 import './Car.css';
 
 class Car extends Component {
@@ -17,11 +18,15 @@ class Car extends Component {
                 <span className="right-line"></span>
                 <span className="left-bumper"></span>
                 <span className="right-bumper"></span>
-                <span className="left-wheel"></span>
-                <span className="right-wheel"></span>
+                <span className="left-wheel">
+                </span>
+                <span className="right-wheel">
+                    <Rim/>
+                </span>
+
                 <span className="front-light"></span>
                 <span className="rear-ligth"></span>
-            </div >
+            </div>
         );
     }
 }
