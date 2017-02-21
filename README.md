@@ -1,4 +1,4 @@
-# Car Configurator
+# Car Configurator [![Build Status](https://travis-ci.org/janb87/car-configurator.svg?branch=master)](https://travis-ci.org/janb87/car-configurator)
 
 Car configurator app, developed just for fun.
 
