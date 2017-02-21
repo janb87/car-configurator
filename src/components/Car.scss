@@ -1,46 +1,93 @@
+@import '../sass/Shapes.scss';
+
 .car {
   position: relative;
   $car-color: crimson;
+  $bumper-color: #999;
+  $wheel-size: 66px;
+  $rim-size: 30px;
+  $tyre-color: #222;
+  $rim-color: #555;
+  $front-light-color: gold;
+  $rear-light-color: orange;
 
   width: 365px;
   height: 185px;
 
-  > span {
+  span {
      position: absolute;
   }
 
   > .body {
     top: 70px;
     left: 10px;
-    width: 340px;
-    height: 80px;
-    border-radius: 30px;
-    background-color: $car-color;
-  }
+    @include square(340px, 80px, 30px, $car-color);
 
-  > .top {
-    top: 10px;
-    left: 70px;
-    width: 220px;
-    height: 55px;
-    border-color: $car-color $car-color transparent $car-color;
-    border-width: 7px;
-    border-style: solid;
-    border-radius: 50px 50px 0 0;
-  }
+    > .top {
+      top: -55px;
+      left: 60px;
+      width: 206px;
+      @include curved-line-horizontal(7px, 55px, $car-color, 150px, 150px);
 
-  > .left-line, > .right-line {
-    top: 10px;
-    height: 70px;
-    border: 7px solid $car-color;
-    border-right-style: none;
-  }
+      > .top-line {
+        top: -25px;
+        @include line-vertical(7px, 70px, $car-color);
 
-  > .left-line {
-    left: 145px;
-  }
+        &.front {
+          left: 65px;
+        }
 
-  > .right-line {
-    left: 215px;
+        &.rear {
+          left: 135px;
+        }
+      }
+    }
+
+    > .bumper {
+      @include square(40px, 20px, 10px, $bumper-color);
+      top: 40px;
+
+      &.front {
+        left: 315px;
+      }
+
+      &.rear {
+        left: -10px;
+      }
+    }
+
+    > .wheel {
+      top: 40px;
+      @include circle($wheel-size, $tyre-color, 7px, #fff);
+
+      > .rim {
+        $rim-margin: ($wheel-size / 2) - ($rim-size / 2);
+        left: $rim-margin;
+        top: $rim-margin;
+        @include circle($rim-size, $rim-color);
+      }
+
+      &.front {
+        left: 220px;
+      }
+
+      &.rear {
+        left: 40px;
+      }
+    }
+
+    > .light {
+      &.front {
+        top: 5px;
+        left: 315px;
+        @include circle(30px, $front-light-color);
+      }
+
+      &.rear {
+        top: 10px;
+        left: -5px;
+        @include circle(20px, $rear-light-color);
+      }
+    }
   }
 }

@@ -3,6 +3,11 @@ import Rim from './Rim';
 import CarNumber from '../components/CarNumber';
 import './Car.css';
 
+/**
+ * TODO: 
+ * 1. Split in components
+ * 2. Add some animations to the car
+ */
 class Car extends Component {
     render() {
         const { bodyColor, sideNumber } = this.props;
@@ -12,23 +17,25 @@ class Car extends Component {
         };
 
         return (
-            <div className="car">
-                <span className="body" style={bodyStyle}></span>
-                <span className="top"></span>
-                <span className="left-line"></span>
-                <span className="right-line"></span>
-                <span className="left-bumper"></span>
-                <span className="right-bumper"></span>
-                <span className="left-wheel">
+             <div className="car">
+                <span className="body">
+                  <span className="top">
+                    <span className="top-line front" />
+                    <span className="top-line rear" />
+                  </span>
+                  <span className="bumper front"></span>
+                  <span className="bumper rear"></span>
+                  <span className="wheel front">
+                    <span className="rim"/>
+                  </span>
+                  <span className="wheel rear">
+                    <span className="rim"/>
+                  </span>
+                  <span className="light front"></span>
+                  <span className="light rear"></span>
+                       <CarNumber>{sideNumber}</CarNumber>
                 </span>
-                <span className="right-wheel">
-                    <Rim/>
-                </span>
-
-                <span className="front-light"></span>
-                <span className="rear-ligth"></span>
-                <CarNumber>{sideNumber}</CarNumber>
-            </div>
+              </div>
         );
     }
 }
