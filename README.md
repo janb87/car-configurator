@@ -34,6 +34,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 6. [ ] i18n
 7. [ ] Sass compilation as part of webpack
 
+## Directory structure
+
+1. `actions` Action creators, used for creating Redux action objects.
+2. `components` Presentation components. Focus on displaying things, don't use the global store.
+3. `containers` Container components. Focus on behavior, use the global store.
+4. `reducers` Redux reducers. Convert an action into a new state.
+5. `services` Services which interact with the backend (JSON Api).
+
 ## Available Scripts
 
 In the project directory, you can run:
