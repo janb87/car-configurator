@@ -1,11 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { setCarBrandsAction } from '../actions/actionCreators';
+import { setCarBrands } from '../actions/actionCreators';
 import { loadCarBrands } from '../services/carBrands';
 
 function* fetchCarBrands(action) {
     try {
         const carBrands = yield call(loadCarBrands);
-        yield put(setCarBrandsAction(carBrands));
+        yield put(setCarBrands(carBrands));
     } catch (e) {
         yield put({ type: "CAR_BRANDS_FETCH_FAILED", message: e.message });
     }

@@ -18,7 +18,7 @@ export const setCarRimsType = (rimsType) => {
     return { type: 'SET_CAR_RIMS_TYPE', value: rimsType };
 }
 
-export const setCarBrandsAction = carBrands => {
+export const setCarBrands = carBrands => {
     return { type: 'SET_CAR_BRANDS', value: carBrands };
 };
 
