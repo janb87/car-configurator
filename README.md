@@ -8,16 +8,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Must have
 
-1. [ ] Being able to customize a car
-    1. [ ] Brand (using data from this [api](https://car-api.firebaseio.com/rest.json))
-    2. [ ] Body color
-    3. [ ] Rims (type + color)
-    4. [ ] Number on the side
-2. [ ] Don't use any images (including SVG or Canvas), try to do as much as possible using CSS
-3. [ ] Use next generation Javascript / CSS
-4. [ ] Minification / any other optimizations for Production
-5. [ ] Proper HTML semantics
-6. [ ] Responsive design
+1. [x] Being able to customize a car
+    1. [x] Brand (using data from this [api](https://car-api.firebaseio.com/rest.json))
+    2. [x] Body color
+    3. [x] Rims (type + color)
+    4. [x] Number on the side
+2. [x] Don't use any images (including SVG or Canvas), try to do as much as possible using CSS
+3. [x] Use next generation Javascript / CSS
+4. [x] Minification / any other optimizations for Production
+5. [x] Proper HTML semantics
+6. [x] Responsive design
 
 ### Should have
 
@@ -35,6 +35,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 5. [ ] Use [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 6. [ ] i18n
 7. [ ] Sass compilation as part of webpack
+8. [ ] Make use of Redux Saga
 
 ## Directory structure
 
