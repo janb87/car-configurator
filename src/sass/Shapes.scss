@@ -30,6 +30,13 @@
     border-radius: $radius * 2;
 }
 
+@mixin oval($width, $height, $bg-color) {
+    width: $width;
+    height: $height;
+    background: $bg-color;
+    border-radius: $width unquote("/") $height;
+}
+
 @mixin star( $color: crimson, $size: 100px, // 2x this value is the width of the star
 $denominator: 1.42 // Play with this val at different sizes
 ) {

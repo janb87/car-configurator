@@ -5,7 +5,12 @@ import './App.css';
 
 const App = (props, context) => {
     const { store } = context;
-    const { bodyColor, sideNumber, rimsType, rimsColor } = store.getState();
+    const { bodyColor, sideNumber, rimsType, rimsColor, selectedCarBrand, carBrands } = store.getState();
+    const matchingCarBrands = carBrands.filter(br => br.make === selectedCarBrand);
+    let carBrandImageUrl = null;
+    if (matchingCarBrands.length > 0) {
+        carBrandImageUrl = matchingCarBrands[0].logoUrl;
+    }
 
     return (
         <div className="app">
@@ -14,7 +19,12 @@ const App = (props, context) => {
             </header>
             <main>
                 <section className="car-view">
-                    <Car bodyColor={bodyColor} sideNumber={sideNumber} rimsType={rimsType} rimsColor={rimsColor} />
+                    <Car bodyColor={bodyColor}
+                        sideNumber={sideNumber}
+                        rimsType={rimsType} rimsColor={rimsColor}
+                        carBrand={selectedCarBrand}
+                        carBrandImageUrl={carBrandImageUrl}
+                    />
                 </section>
                 <ConfigurationPanel />
             </main>

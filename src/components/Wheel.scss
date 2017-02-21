@@ -7,16 +7,19 @@ $supported-rim-colors: #c0c0c0 #808080 #ffd700 #ff0000;
     $rim-star-size: 50px;
     $rim-cross-size: 50px;
     $tyre-color: #222;
-    $rim-color: #555;
     @include circle($wheel-size, $tyre-color, 7px, #fff);
-    animation: spin 3s infinite linear;
     >.rim {
         position: absolute;
         &.basic {
             $rim-basic-margin: ($wheel-size / 2) - ($rim-basic-size / 2);
             left: $rim-basic-margin;
             top: $rim-basic-margin;
-            @include circle($rim-basic-size, $rim-color);
+            @each $color in $supported-rim-colors {
+                &.color-#{str-slice(quote($color), 2)} {
+                    // By making the circle slightly inperfect the animation is visible
+                    @include oval($rim-basic-size, ($rim-basic-size + 1), $color);
+                }
+            }
         }
         &.star {
             $rim-star-margin: ($wheel-size / 2) - ($rim-star-size / 2);

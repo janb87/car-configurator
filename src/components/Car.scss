@@ -57,6 +57,10 @@
             left: 140px;
             top: 10px;
         }
+        >.car-logo {
+            top: 5px;
+            right: 30px;
+        }
     }
     >.wheel {
         top: 120px;
@@ -65,6 +69,12 @@
         }
         &.rear {
             left: 50px;
+        }
+        .rim {
+            animation: spin 2s infinite linear;
+            &.basic {
+                animation: spin 0.4s infinite linear;
+            }
         }
     }
     .shadow {
