@@ -14,12 +14,8 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
 sagaMiddleware.run(carBrandsSaga);
 
-const render = () => {
-    ReactDOM.render(
-        (<Provider store={store}><App /></Provider>),
-        document.getElementById('root')
-    );
-};
-store.subscribe(render);
+ReactDOM.render(
+    (<Provider store={store}><App /></Provider>),
+    document.getElementById('root')
+);
 store.dispatch(carBrandsFetchRequested());
-render();
