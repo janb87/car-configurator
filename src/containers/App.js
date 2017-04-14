@@ -1,11 +1,15 @@
 import React from 'react';
 import Car from '../components/Car';
 import ConfigurationPanel from './ConfigurationPanel';
+import { connect } from 'react-redux';
 import './App.css';
 
-const App = (props, context) => {
-    const { store } = context;
-    const { bodyColor, sideNumber, rimsType, rimsColor, selectedCarBrand, carBrands } = store.getState();
+const mapStateToProps = (state) => {
+    return { ...state };
+}
+
+const App = (props) => {
+    const { bodyColor, sideNumber, rimsType, rimsColor, selectedCarBrand, carBrands } = props;
     const matchingCarBrands = carBrands.filter(br => br.make === selectedCarBrand);
     let carBrandImageUrl = null;
     if (matchingCarBrands.length > 0) {
@@ -32,8 +36,4 @@ const App = (props, context) => {
     );
 }
 
-App.contextTypes = {
-    store: React.PropTypes.object
-};
-
-export default App;
+export default connect(mapStateToProps)(App);
