@@ -1,5 +1,5 @@
 import React from 'react';
-import './Wheel.css';
+import './Wheel.scss';
 import classnames from 'classnames';
 
 const Wheel = (props) => {

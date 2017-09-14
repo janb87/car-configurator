@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HuePicker, CirclePicker } from 'react-color';
-import './ConfigurationEditor.css';
+import './ConfigurationEditor.scss';
 import Wheel from '../components/Wheel';
 import { setCarBodyColor, setCarRimsColor, selectCarBrand, setCarSideNumber, setCarRimsType } from '../actions/actionCreators';
 

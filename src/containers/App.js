@@ -2,7 +2,7 @@ import React from 'react';
 import Car from '../components/Car';
 import ConfigurationPanel from './ConfigurationPanel';
 import { connect } from 'react-redux';
-import './App.css';
+import './App.scss';
 
 const mapStateToProps = (state) => {
     return { ...state };

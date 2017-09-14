@@ -1,5 +1,5 @@
 import React from 'react';
-import './CarNumber.css';
+import './CarNumber.scss';
 
 const CarNumber = (props) => {
     return (

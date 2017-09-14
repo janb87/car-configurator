@@ -1,5 +1,5 @@
 import React from 'react';
-import './CarLogo.css';
+import './CarLogo.scss';
 
 const CarLogo = (props) => {
     const { carBrand, imageUrl } = props;

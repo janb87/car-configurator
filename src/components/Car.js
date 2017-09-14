@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CarNumber from './CarNumber';
 import Wheel from './Wheel';
 import CarLogo from './CarLogo';
-import './Car.css';
+import './Car.scss';
 
 class Car extends Component {
     render() {
