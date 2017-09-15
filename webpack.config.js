@@ -4,6 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 const postCssLoaderConfig = {
     loader: 'postcss-loader', options: {
@@ -78,7 +79,14 @@ module.exports = env => {
     };
 
     if (isProd) {
-        //config.plugins.push(new UglifyJSPlugin());
+        config.plugins.push(
+            new UglifyJSPlugin(),
+            new webpack.DefinePlugin({
+                'process.env': {
+                    'NODE_ENV': JSON.stringify('production')
+                }
+            })
+        );
     }
 
     return config;
