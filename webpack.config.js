@@ -30,7 +30,10 @@ module.exports = env => {
         },
         devtool: isProd ? false : 'eval-source-map',
         devServer: {
-            contentBase: DIST_PATH
+            contentBase: DIST_PATH,
+            historyApiFallback: {
+                index: 'index.html'
+            }
         },
         resolve: {
             extensions: ['.js', '.scss', '.json']
