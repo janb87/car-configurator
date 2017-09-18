@@ -4,8 +4,11 @@ const {renderHtml} = require('./dist/server');
 
 const app = express();
 
-app.get('/', function (req, res) {
-    const html = renderHtml();
+app.get(['/', '/home', '/summary'], function (req, res) {
+    const html = renderHtml(req, {
+        sideNumber: 13,
+        carBrands: []
+    });
 
     fs.readFile('./dist/index.html', (err, data) => {
         const document = data.toString().replace(/<div id="root"><\/div>/, `<div id="root">${html}</div>`);
@@ -15,4 +18,4 @@ app.get('/', function (req, res) {
 
 app.use(express.static(__dirname + '/dist'));
 
-app.listen(3000);
+app.listen(8080);
