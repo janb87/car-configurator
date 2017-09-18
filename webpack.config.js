@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const _ = require('lodash');
 
 const postCssLoaderConfig = {
     loader: 'postcss-loader', options: {
@@ -17,8 +18,6 @@ const postCssLoaderConfig = {
 const DIST_PATH = path.resolve(__dirname, 'dist');
 
 module.exports = env => {
-    const babelOptions = {presets: ['env']};
-
     const isProd = env && env.platform == 'prod';
     const clientConfig = {
         entry: {
@@ -36,7 +35,10 @@ module.exports = env => {
             }
         },
         resolve: {
-            extensions: ['.js', '.scss', '.json']
+            extensions: ['.js', '.scss', '.json'],
+            alias: {
+                'load-pages': path.resolve(__dirname, 'src/utils/load-pages.js')
+            }
         },
         module: {
             rules: [
@@ -45,7 +47,9 @@ module.exports = env => {
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
-                        options: babelOptions
+                        options: {
+                            presets: ['env']
+                        }
                     }
                 },
                 {
@@ -94,8 +98,8 @@ module.exports = env => {
      * Server side configuration
      * Used for rendering React on the server
      */
-    const serverConfig = Object.assign(Object.assign({}, clientConfig), {
-        entry: {'server': './src/server.js'},
+    const serverConfig = Object.assign(_.cloneDeep(clientConfig), {
+        entry: {'server': './src/server/index.js'},
         target: 'node',
         node: {
             __filename: true,
@@ -107,8 +111,10 @@ module.exports = env => {
             libraryTarget: 'commonjs2'
         }
     });
+    serverConfig.plugins = serverConfig.plugins.slice().splice(2);
 
-    // TODO fix async chunk loading
+    // Different implementation for async chunk loading (synchronous version)
+    serverConfig.resolve.alias['load-pages'] = path.resolve(__dirname, 'src/server/load-pages.js');
 
     return [clientConfig, serverConfig];
 };

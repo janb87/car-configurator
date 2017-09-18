@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {loadHomePage, loadSummaryPage} from 'load-pages';
 import './App.scss';
 
 const mapStateToProps = (state) => {
@@ -11,20 +12,23 @@ const cachedPages = {};
 class App extends React.Component {
 
     loadPage(page) {
-        System.import(`./${page}`).then(Page => {
-            cachedPages[page] = Page.default(this.props);
+        const load = page === 'SUMMARY' ? loadSummaryPage : loadHomePage;
+        return load(Page => {
+            cachedPages[page] = Page.default;
             this.forceUpdate();
         });
     }
 
     renderPage(page) {
         const pageContent = cachedPages[page];
-        if (pageContent) {
-            return pageContent;
-        } else {
-            this.loadPage(page);
-            return (<div>Loading...</div>);
+        if (typeof pageContent === 'function') {
+            return pageContent(this.props);
         }
+        const component = this.loadPage(page);
+        if (typeof component === 'function') {
+            return component(this.props);
+        }
+        return (<div>Loading...</div>);
     }
 
     render() {
@@ -35,7 +39,7 @@ class App extends React.Component {
                 <header className="header">
                     <h2>Welcome to the Car Configurator!</h2>
                 </header>
-                {this.renderPage(page === 'SUMMARY' ? 'SummaryPage' : 'HomePage')}
+                {this.renderPage(page)}
             </div>
         );
     }
