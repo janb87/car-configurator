@@ -17,16 +17,16 @@ const postCssLoaderConfig = {
 const DIST_PATH = path.resolve(__dirname, 'dist');
 
 module.exports = env => {
+    const babelOptions = {presets: ['env']};
+
     const isProd = env && env.platform == 'prod';
-    const config = {
+    const clientConfig = {
         entry: {
-            'main': './src/index.js',
-            'server': './src/server.js'
+            'main': './src/index.js'
         },
         output: {
             path: DIST_PATH,
-            filename: `[name].js`,
-            libraryTarget: 'umd'
+            filename: `[name].js`
         },
         devtool: isProd ? false : 'eval-source-map',
         devServer: {
@@ -45,9 +45,7 @@ module.exports = env => {
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
-                        options: {
-                            presets: ['env']
-                        }
+                        options: babelOptions
                     }
                 },
                 {
@@ -82,7 +80,7 @@ module.exports = env => {
     };
 
     if (isProd) {
-        config.plugins.push(
+        clientConfig.plugins.push(
             new UglifyJSPlugin(),
             new webpack.DefinePlugin({
                 'process.env': {
@@ -92,5 +90,25 @@ module.exports = env => {
         );
     }
 
-    return config;
+    /**
+     * Server side configuration
+     * Used for rendering React on the server
+     */
+    const serverConfig = Object.assign(Object.assign({}, clientConfig), {
+        entry: {'server': './src/server.js'},
+        target: 'node',
+        node: {
+            __filename: true,
+            __dirname: true
+        },
+        output: {
+            path: DIST_PATH,
+            filename: `[name].js`,
+            libraryTarget: 'commonjs2'
+        }
+    });
+
+    // TODO fix async chunk loading
+
+    return [clientConfig, serverConfig];
 };
