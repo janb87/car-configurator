@@ -1,21 +1,42 @@
 const express = require('express');
 const fs = require('fs');
-const {renderHtml} = require('./dist/server');
+const clientConfig = require('./webpack.config')({platform: 'prod'})[0];
+const webpack = require('webpack');
 
 const app = express();
 
-app.get(['/', '/home', '/summary'], function (req, res) {
-    const html = renderHtml(req, {
-        sideNumber: 13,
-        carBrands: []
+let stats;
+const loadWebpackStats = (done) => {
+    if (stats) {
+        done(undefined, stats);
+        return;
+    }
+    webpack(clientConfig).run((err, wbStats) => {
+        stats = wbStats.toJson();
+        done(err, stats);
     });
+};
 
-    fs.readFile('./dist/index.html', (err, data) => {
-        const document = data.toString().replace(/<div id="root"><\/div>/, `<div id="root">${html}</div>`);
-        res.send(document);
+app.get(['/', '/home', '/summary'], function (req, res) {
+    loadWebpackStats((err, stats) => {
+        if (err) {
+            res.send(err.message);
+            return;
+        }
+        try {
+            const serverRender = require('./dist/server.js').default;
+            const html = serverRender(stats, req.path, {
+                sideNumber: 13,
+                carBrands: []
+            });
+            res.send(html);
+        } catch (e) {
+            console.log(e);
+            res.send(e.message);
+        }
     });
 });
 
 app.use(express.static(__dirname + '/dist'));
 
-app.listen(8080);
+app.listen(3000);
