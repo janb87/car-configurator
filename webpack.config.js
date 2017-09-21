@@ -74,6 +74,11 @@ module.exports = env => {
                     quality: '95-100'
                 }
             }),
+            new webpack.optimize.CommonsChunkPlugin({
+                names: ['bootstrap'], // needed to put webpack bootstrap code before chunks
+                filename: '[name].[chunkhash].js',
+                minChunks: Infinity
+            }),
             new ExtractCssChunks()
         ]
     };
@@ -106,7 +111,7 @@ module.exports = env => {
             libraryTarget: 'commonjs2'
         }
     });
-    serverConfig.plugins = serverConfig.plugins.slice().splice(2);
+    serverConfig.plugins = serverConfig.plugins.slice().splice(3);
     serverConfig.plugins.push(new webpack.optimize.LimitChunkCountPlugin({
         maxChunks: 1
     }));

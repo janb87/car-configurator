@@ -5,24 +5,22 @@ const webpack = require('webpack');
 
 const app = express();
 
-let stats;
 const loadWebpackStats = (done) => {
-    if (stats) {
-        done(undefined, stats);
-        return;
-    }
     webpack(clientConfig).run((err, wbStats) => {
         stats = wbStats.toJson();
         done(err, stats);
     });
 };
 
-app.get(['/', '/home', '/summary'], function (req, res) {
-    loadWebpackStats((err, stats) => {
-        if (err) {
-            res.send(err.message);
-            return;
-        }
+app.use(express.static(__dirname + '/dist'));
+
+loadWebpackStats((err, stats) => {
+    if (err) {
+        console.error('Unable to start application due to an error.', err);
+        return;
+    }
+
+    app.get(['/', '/home', '/summary'], function (req, res) {
         try {
             const serverRender = require('./dist/server.js').default;
             const html = serverRender(stats, req.path, {
@@ -35,8 +33,7 @@ app.get(['/', '/home', '/summary'], function (req, res) {
             res.send(e.message);
         }
     });
+
+    app.listen(3000);
 });
 
-app.use(express.static(__dirname + '/dist'));
-
-app.listen(3000);
