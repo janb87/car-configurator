@@ -50,6 +50,8 @@
     "clean": "rm -rf ./dist",
     "start": "concurrently \"webpack --config webpack.config.js && webpack-dev-server --open\" \"jest --watch\"",
     "test": "jest",
-    "build": "npm run clean && webpack --config webpack.config.js --env.platform=prod"
+    "build": "npm run clean && webpack --config webpack.config.js --env.platform=prod && npm run copy-php-files && npm run dump-stats",
+    "copy-php-files": "cp ./index.php ./dist",
+    "dump-stats": "node ./build/dump-webpack-stats.js"
   }
 }
