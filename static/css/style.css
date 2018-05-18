@@ -1,0 +1,462 @@
+.car-number {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 32px Arial, sans-serif;
+}
+.wheel {
+    position: relative;
+    width: 66px;
+    height: 66px;
+    background-color: #222;
+    border: 7px solid #fff;
+    border-radius: 132px;
+}
+.wheel > .rim {
+    position: absolute;
+}
+.wheel > .rim.basic {
+    left: 18px;
+    top: 18px;
+}
+.wheel > .rim.basic.color-c0c0c0 {
+    width: 30px;
+    height: 32px;
+    background: #c0c0c0;
+    border-radius: 30px / 32px;
+}
+.wheel > .rim.basic.color-808080 {
+    width: 30px;
+    height: 32px;
+    background: #808080;
+    border-radius: 30px / 32px;
+}
+.wheel > .rim.basic.color-ffd700 {
+    width: 30px;
+    height: 32px;
+    background: #ffd700;
+    border-radius: 30px / 32px;
+}
+.wheel > .rim.basic.color-ff0000 {
+    width: 30px;
+    height: 32px;
+    background: #ff0000;
+    border-radius: 30px / 32px;
+}
+.wheel > .rim.star {
+    left: 8px;
+    top: 8px;
+}
+.wheel > .rim.star.color-c0c0c0 {
+    border-color: #c0c0c0 transparent transparent transparent;
+    border-style: solid;
+    border-top-width: 17.60563px;
+    border-right-width: 25px;
+    border-left-width: 25px;
+    height: 0;
+    margin-top: 17.60563px;
+    margin-bottom: 11.31791px;
+    position: relative;
+    width: 0;
+}
+.wheel > .rim.star.color-c0c0c0:before,
+.wheel > .rim.star.color-c0c0c0:after {
+    border-color: #c0c0c0 transparent transparent transparent;
+    border-style: solid;
+    border-top-width: 17.60563px;
+    border-right-width: 25px;
+    border-left-width: 25px;
+    content: '';
+    display: block;
+    height: 0;
+    left: -25px;
+    position: absolute;
+    top: -17.60563px;
+    width: 0;
+}
+.wheel > .rim.star.color-c0c0c0:before {
+    transform: rotate(70deg);
+}
+.wheel > .rim.star.color-c0c0c0:after {
+    transform: rotate(-70deg);
+}
+.wheel > .rim.star.color-808080 {
+    border-color: #808080 transparent transparent transparent;
+    border-style: solid;
+    border-top-width: 17.60563px;
+    border-right-width: 25px;
+    border-left-width: 25px;
+    height: 0;
+    margin-top: 17.60563px;
+    margin-bottom: 11.31791px;
+    position: relative;
+    width: 0;
+}
+.wheel > .rim.star.color-808080:before,
+.wheel > .rim.star.color-808080:after {
+    border-color: #808080 transparent transparent transparent;
+    border-style: solid;
+    border-top-width: 17.60563px;
+    border-right-width: 25px;
+    border-left-width: 25px;
+    content: '';
+    display: block;
+    height: 0;
+    left: -25px;
+    position: absolute;
+    top: -17.60563px;
+    width: 0;
+}
+.wheel > .rim.star.color-808080:before {
+    transform: rotate(70deg);
+}
+.wheel > .rim.star.color-808080:after {
+    transform: rotate(-70deg);
+}
+.wheel > .rim.star.color-ffd700 {
+    border-color: #ffd700 transparent transparent transparent;
+    border-style: solid;
+    border-top-width: 17.60563px;
+    border-right-width: 25px;
+    border-left-width: 25px;
+    height: 0;
+    margin-top: 17.60563px;
+    margin-bottom: 11.31791px;
+    position: relative;
+    width: 0;
+}
+.wheel > .rim.star.color-ffd700:before,
+.wheel > .rim.star.color-ffd700:after {
+    border-color: #ffd700 transparent transparent transparent;
+    border-style: solid;
+    border-top-width: 17.60563px;
+    border-right-width: 25px;
+    border-left-width: 25px;
+    content: '';
+    display: block;
+    height: 0;
+    left: -25px;
+    position: absolute;
+    top: -17.60563px;
+    width: 0;
+}
+.wheel > .rim.star.color-ffd700:before {
+    transform: rotate(70deg);
+}
+.wheel > .rim.star.color-ffd700:after {
+    transform: rotate(-70deg);
+}
+.wheel > .rim.star.color-ff0000 {
+    border-color: #ff0000 transparent transparent transparent;
+    border-style: solid;
+    border-top-width: 17.60563px;
+    border-right-width: 25px;
+    border-left-width: 25px;
+    height: 0;
+    margin-top: 17.60563px;
+    margin-bottom: 11.31791px;
+    position: relative;
+    width: 0;
+}
+.wheel > .rim.star.color-ff0000:before,
+.wheel > .rim.star.color-ff0000:after {
+    border-color: #ff0000 transparent transparent transparent;
+    border-style: solid;
+    border-top-width: 17.60563px;
+    border-right-width: 25px;
+    border-left-width: 25px;
+    content: '';
+    display: block;
+    height: 0;
+    left: -25px;
+    position: absolute;
+    top: -17.60563px;
+    width: 0;
+}
+.wheel > .rim.star.color-ff0000:before {
+    transform: rotate(70deg);
+}
+.wheel > .rim.star.color-ff0000:after {
+    transform: rotate(-70deg);
+}
+.wheel > .rim.cross {
+    left: 8px;
+    top: 8px;
+}
+.wheel > .rim.cross.color-c0c0c0 {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(
+            to bottom,
+            transparent 35%,
+            #c0c0c0 35%,
+            #c0c0c0 65%,
+            transparent 65%
+        ),
+        linear-gradient(
+            to right,
+            transparent 35%,
+            #c0c0c0 35%,
+            #c0c0c0 65%,
+            transparent 65%
+        );
+}
+.wheel > .rim.cross.color-808080 {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(
+            to bottom,
+            transparent 35%,
+            #808080 35%,
+            #808080 65%,
+            transparent 65%
+        ),
+        linear-gradient(
+            to right,
+            transparent 35%,
+            #808080 35%,
+            #808080 65%,
+            transparent 65%
+        );
+}
+.wheel > .rim.cross.color-ffd700 {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(
+            to bottom,
+            transparent 35%,
+            #ffd700 35%,
+            #ffd700 65%,
+            transparent 65%
+        ),
+        linear-gradient(
+            to right,
+            transparent 35%,
+            #ffd700 35%,
+            #ffd700 65%,
+            transparent 65%
+        );
+}
+.wheel > .rim.cross.color-ff0000 {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(
+            to bottom,
+            transparent 35%,
+            #ff0000 35%,
+            #ff0000 65%,
+            transparent 65%
+        ),
+        linear-gradient(
+            to right,
+            transparent 35%,
+            #ff0000 35%,
+            #ff0000 65%,
+            transparent 65%
+        );
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.car-logo img {
+    object-fit: contain;
+    height: 40px;
+}
+.car {
+    position: relative;
+    width: 365px;
+    height: 185px;
+}
+.car div {
+    position: absolute;
+}
+.car > .body {
+    top: 70px;
+    left: 10px;
+    width: 340px;
+    height: 80px;
+    border-radius: 30px;
+    background-color: crimson;
+    animation: bobbing 0.2s infinite ease-in-out forwards alternate;
+}
+.car > .body > .top {
+    top: -55px;
+    left: 60px;
+    width: 206px;
+    height: 55px;
+    border: 7px solid crimson;
+    border-right-style: none;
+    border-right-style: solid;
+    transform: rotate(180deg);
+    border-radius: 0 0 150px 150px;
+}
+.car > .body > .top > .top-line {
+    top: -25px;
+    height: 70px;
+    border: 7px solid crimson;
+    border-right-style: none;
+}
+.car > .body > .top > .top-line.front {
+    left: 65px;
+}
+.car > .body > .top > .top-line.rear {
+    left: 135px;
+}
+.car > .body > .bumper {
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #999;
+    top: 40px;
+}
+.car > .body > .bumper.front {
+    left: 315px;
+}
+.car > .body > .bumper.rear {
+    left: -10px;
+}
+.car > .body > .light.front {
+    top: 5px;
+    left: 315px;
+    width: 30px;
+    height: 30px;
+    background-color: gold;
+    border: 0 solid transparent;
+    border-radius: 60px;
+}
+.car > .body > .light.rear {
+    top: 10px;
+    left: -5px;
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    border: 0 solid transparent;
+    border-radius: 40px;
+}
+.car > .body > .car-number {
+    left: 140px;
+    top: 10px;
+}
+.car > .body > .car-logo {
+    top: 5px;
+    right: 30px;
+}
+.car > .wheel {
+    top: 120px;
+}
+.car > .wheel.front {
+    left: 230px;
+}
+.car > .wheel.rear {
+    left: 50px;
+}
+.car > .wheel .rim {
+    animation: spin 2s infinite linear;
+}
+.car > .wheel .rim.basic {
+    animation: spin 0.4s infinite linear;
+}
+.car .shadow {
+    width: 90%;
+    border-radius: 100%;
+    height: 20px;
+    bottom: -10%;
+    left: 5%;
+    background: rgba(0, 0, 0, 0.1);
+    animation: shadow 0.2s infinite ease-in-out forwards alternate;
+    transform-origin: right center;
+}
+
+@keyframes bobbing {
+    0% {
+        transform: rotate(0) translateY(0);
+    }
+    100% {
+        transform: rotate(0.1deg) translateY(5px);
+    }
+}
+
+@keyframes shadow {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.01);
+    }
+}
+.configuration-editor {
+    padding: 20px;
+}
+.configuration-editor .car-brands img {
+    padding: 10px;
+    object-fit: contain;
+    height: 50px;
+}
+.configuration-editor .car-brands img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.configuration-editor .car-brands img.selected {
+    opacity: 0.4;
+}
+.configuration-editor .car-brands img.selected:hover {
+    cursor: inherit;
+    transform: inherit;
+}
+.configuration-editor .rim-styles > div {
+    display: inline-block;
+    padding: 10px;
+}
+.configuration-editor .rim-styles > div:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.configuration-editor .rim-styles > div.selected {
+    opacity: 0.4;
+}
+.configuration-editor .rim-styles > div.selected:hover {
+    cursor: inherit;
+    transform: inherit;
+}
+.app .header {
+    text-align: center;
+    background-color: #222;
+    height: 70px;
+    padding: 10px 20px 20px 20px;
+    color: white;
+}
+
+.app > main {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.app > main .car-view {
+    flex: 2 auto;
+}
+.app > main .car-view .car {
+    margin: 0 auto;
+}
+.app > main .configuration-panel {
+    flex: 1 auto;
+    width: 350px;
+    max-width: 350px;
+    overflow: auto;
+}
+.app > main .view-summary {
+    width: 100%;
+}
